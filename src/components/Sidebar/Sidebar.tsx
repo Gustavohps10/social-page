@@ -1,5 +1,6 @@
 import { Button } from "../Button/Button"
 import { StyledSidebar } from "./Sidebar.css"
+import { RiEditLine } from "react-icons/ri"
 
 function Sidebar() {
     return(
@@ -13,7 +14,10 @@ function Sidebar() {
             </div>
             
             <footer>
-                <Button>Editar seu perfil</Button>
+                <Button variant="outline">
+                <RiEditLine size="1.25rem"/>
+                    Editar seu perfil
+                </Button>
             </footer>
         </StyledSidebar>
     )

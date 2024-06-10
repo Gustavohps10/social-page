@@ -49,7 +49,7 @@ export const StyledSidebar = styled.aside`
     }
 
     footer {
-        padding: 2rem;
+        padding: 2rem 0;
         margin-top: 1.5rem;
         border-top: 1px solid var(--gray-600);
 
