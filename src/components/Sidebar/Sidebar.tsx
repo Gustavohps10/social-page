@@ -1,3 +1,4 @@
+import { Button } from "../Button/Button"
 import { StyledSidebar } from "./Sidebar.css"
 
 function Sidebar() {
@@ -12,7 +13,7 @@ function Sidebar() {
             </div>
             
             <footer>
-                <button>Link</button>
+                <Button>Editar seu perfil</Button>
             </footer>
         </StyledSidebar>
     )
