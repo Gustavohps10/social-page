@@ -28,7 +28,7 @@ const StyledButton = styled.button<{ $variant: string }>`
     gap: 0.62rem;
     border-radius: ${({theme}) => theme.border.radius};
     padding: 1rem 1.5rem;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
     transition: all .2s ease;
     outline: none;
