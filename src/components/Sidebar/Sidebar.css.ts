@@ -16,20 +16,12 @@ export const StyledSidebar = styled.aside`
         position: relative;
 
         .avatar {
-            outline-offset: 4px;
-            outline: 2px solid var(--green-500);
-            border-radius: 8px;
-            overflow: hidden;
-            object-fit: cover;
-
-            width: 3.75rem;
-            height: 3.75rem;
-            margin-top: -15%;
-            margin-bottom: 1rem;
-            
             position: relative;
             left: 50%;
             transform: translatex(-50%);
+
+            margin-top: -15%;
+            margin-bottom: 1rem;
         }
 
         strong, span {

@@ -4,6 +4,7 @@ import { theme } from "./theme.css"
 import { Header } from "./components/Header/Header"
 import { Sidebar } from "./components/Sidebar/Sidebar"
 import { Wrapper } from "./components/Wrapper/Wrapper"
+import { Post } from "./components/Post/Post"
 
 function App() {
 
@@ -13,7 +14,9 @@ function App() {
        
         <Wrapper>
           <Sidebar/>
-          <div>teste</div>
+          <div>
+            <Post />
+          </div>
         </Wrapper>
     </ThemeProvider>
   )
