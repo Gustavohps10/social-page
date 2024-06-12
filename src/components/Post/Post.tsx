@@ -1,3 +1,4 @@
+import { ReactNode } from "react"
 import { Avatar } from "../Avatar/Avatar"
 import { Button } from "../Button/Button"
 import * as S from "./Post.css"
@@ -11,10 +12,11 @@ type PostProps = {
         occupation: string
     },
     text: string
-    tags: string[]
+    tags: string[],
+    children?: ReactNode
 }
 
-function Post({ created_at, user, text, tags }: PostProps) {
+function Post({ created_at, user, text, tags, children }: PostProps) {
     return(
         <S.StyledPost>
             <header>
@@ -40,6 +42,7 @@ function Post({ created_at, user, text, tags }: PostProps) {
                 <textarea placeholder="Escreva um comentário"></textarea>
                 <Button variant="filled">Publicar</Button>
             </div>
+            {children}
         </S.StyledPost>
     )
 }

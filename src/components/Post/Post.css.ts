@@ -6,7 +6,7 @@ export const StyledPost = styled.div`
     padding: 2.5rem;
     margin-bottom: 2rem;
 
-    header {
+    > header {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -29,7 +29,7 @@ export const StyledPost = styled.div`
         }
     }
 
-    .content {
+    > .content {
         color: ${({theme})=> theme.color.gray_300};
         padding: 1.5rem 0;
         margin-bottom: 1.5rem;
@@ -48,7 +48,7 @@ export const StyledPost = styled.div`
         }
     }
 
-    .feedback {
+    > .feedback {
         h1 {
             font-size: 1rem;
         }
