@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import { ThemeProvider } from "styled-components"
 import { theme } from "./theme.css"
 
@@ -7,7 +9,11 @@ import { Wrapper } from "./components/Wrapper/Wrapper"
 import { Post } from "./components/Post/Post"
 import { Comment } from "./components/Comment/Comment"
 
+import { FakePosts } from "./data/fakePosts"
+
+
 function App() {
+  const [posts, setPosts] = useState(FakePosts)
 
   return (
     <ThemeProvider theme={theme}>
@@ -16,63 +22,26 @@ function App() {
         <Wrapper>
           <Sidebar/>
           <div>
-            <Post
-              created_at="2024-11-11" 
-              tags={["design", "test", "test2"]}
-              user={{
-                avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                name: "Joãozinho1234",
-                occupation: "UI Designer"
-              }}
-              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quas culpa laborum harum cum voluptates vel ab quidem nobis fugiat a, soluta aliquid iste eius quaerat dolore unde voluptatum ea?"
-            />
-            <Post
-              created_at="2024-11-11" 
-              tags={["design", "test", "test2"]}
-              user={{
-                avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                name: "Joãozinho1234",
-                occupation: "UI Designer"
-              }}
-              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quas culpa laborum harum cum voluptates vel ab quidem nobis fugiat a, soluta aliquid iste eius quaerat dolore unde voluptatum ea?"
-            >
-              <Comment 
-                created_at="2024-12-22"
-                user={{
-                  avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                  name: "Joãozinho1234",
-                  occupation: "UI Designer"
-                }}
-                text="Lorem ipsum"
-              />
-              <Comment 
-                created_at="2024-12-22"
-                user={{
-                  avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                  name: "Joãozinho1234",
-                  occupation: "UI Designer"
-                }}
-                text="Lorem ipsum"
-              />
-              <Comment 
-                created_at="2024-12-22"
-                user={{
-                  avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                  name: "Joãozinho1234",
-                  occupation: "UI Designer"
-                }}
-                text="Lorem ipsum"
-              />
-              <Comment 
-                created_at="2024-12-22"
-                user={{
-                  avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                  name: "Joãozinho1234",
-                  occupation: "UI Designer"
-                }}
-                text="Lorem ipsum"
-              />
-            </Post>
+            {
+              posts.map(post => 
+                <Post 
+                  key={post.id}
+                  created_at={post.created_at}
+                  tags={post.tags}
+                  text={post.text}
+                  user={post.user}
+                >
+                  {post.comments.map(comment => 
+                    <Comment
+                      key={comment.id}
+                      created_at={comment.created_at}
+                      text={comment.text}
+                      user={comment.user}
+                    />
+                  )}
+                </Post>
+              )
+            }
           </div>
         </Wrapper>
     </ThemeProvider>

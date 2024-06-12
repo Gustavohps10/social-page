@@ -4,7 +4,7 @@ import { Button } from "../Button/Button"
 import * as S from "./Post.css"
 
 
-type PostProps = {
+export type PostProps = {
     created_at: string
     user: {
         avatar: string
@@ -21,7 +21,7 @@ function Post({ created_at, user, text, tags, children }: PostProps) {
         <S.StyledPost>
             <header>
                 <div className="profile">
-                    <Avatar src={user.avatar}/>
+                    <Avatar $outline src={user.avatar}/>
                     <div className="data">
                         <strong>{user.name}</strong>
                         <span>{user.occupation}</span>
@@ -33,7 +33,7 @@ function Post({ created_at, user, text, tags, children }: PostProps) {
             <div className="content">
                 <p>{text}</p>
                 <ul className="tags">
-                { tags.map(tag => <li>{ '#'+tag }</li>) }
+                { tags.map(tag => <li key={tag}>{ '#'+tag }</li>) }
                 </ul>
             </div>
 
