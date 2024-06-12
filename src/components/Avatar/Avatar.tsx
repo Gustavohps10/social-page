@@ -1,7 +1,6 @@
-import type {ImgHTMLAttributes} from "react"
 import * as S from "./Avatar.css"
 
-function Avatar({...props}: ImgHTMLAttributes<HTMLImageElement>) {
+function Avatar({...props}: S.StyledAvatarProps) {
     return(
         <S.StyledAvatar {...props} />
     )
