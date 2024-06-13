@@ -1,4 +1,9 @@
+import { ButtonHTMLAttributes } from "react";
 import styled, { DefaultTheme, css } from "styled-components";
+
+export type StyledButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+    $variant: "filled" | "outline"
+}
 
 const variantStyles = (theme: DefaultTheme, variant = 'filled') =>
     ({

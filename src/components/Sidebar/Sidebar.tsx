@@ -15,7 +15,7 @@ function Sidebar() {
             </div>
             
             <footer>
-                <Button variant="outline">
+                <Button $variant="outline">
                 <RiEditLine size="1.25rem"/>
                     Editar seu perfil
                 </Button>

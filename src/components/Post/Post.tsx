@@ -1,6 +1,5 @@
 import { ReactNode } from "react"
 import { Avatar } from "../Avatar/Avatar"
-import { Button } from "../Button/Button"
 import * as S from "./Post.css"
 
 
@@ -37,11 +36,6 @@ function Post({ created_at, user, text, tags, children }: PostProps) {
                 </ul>
             </div>
 
-            <div className="feedback">
-                <h1>Deixe seu feedback</h1>
-                <textarea placeholder="Escreva um comentário"></textarea>
-                <Button variant="filled">Publicar</Button>
-            </div>
             {children}
         </S.StyledPost>
     )

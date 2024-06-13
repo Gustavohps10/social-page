@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const StyledPost = styled.div`
+export type StyledPostProps = {
+    $active: boolean
+}
+
+export const StyledPost = styled.div<StyledPostProps>`
     background-color: ${({theme}) => theme.color.gray_800};
     border-radius: ${({theme}) => theme.border.radius};
     padding: 2.5rem;
@@ -57,12 +61,16 @@ export const StyledPost = styled.div`
             margin: 1rem 0;
             padding: 1rem;
             width: 100%;
-            outline: none;
             color: ${({theme})=> theme.color.gray_300};
             background-color: ${({theme})=> theme.color.gray_900};
-            border: 1px solid ${({theme})=> theme.color.green_500};
+            outline: none;
             border-radius: ${({theme})=> theme.border.radius};
+            border: none;
             height: 6rem;
+            
+            &:focus {
+                outline: 1px solid ${({theme})=> theme.color.green_500};
+            }
         }
     }
 `;

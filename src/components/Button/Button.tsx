@@ -1,14 +1,8 @@
-import { ReactNode } from "react"
-import { StyledButton } from "./Button.css"
+import { StyledButton, StyledButtonProps } from "./Button.css"
 
-type ButtonProps = {
-    children: ReactNode,
-    variant: "filled" | "outline"
-}
-
-function Button({ children, variant }: ButtonProps) {
+function Button({children, ...props}: StyledButtonProps) {
     return(
-        <StyledButton $variant={variant}>{ children }</StyledButton>
+        <StyledButton {...props}>{ children }</StyledButton>
     )
 }
 
