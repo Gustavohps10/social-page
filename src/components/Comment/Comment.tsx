@@ -5,7 +5,8 @@ import { BiLike } from "react-icons/bi"
 
 type CommentProps = {
     created_at: string
-    user: {
+    author: {
+        id: string
         avatar: string
         name: string
         occupation: string
@@ -15,10 +16,11 @@ type CommentProps = {
         id: string
         userId: string       
     }[]
-    handleLike: () => void
+    onLikeClick: () => void
+    onDeleteClick: () => void
 }
 
-function Comment({created_at, user, text, likes, handleLike}: CommentProps){
+function Comment({created_at, author, text, likes, onLikeClick, onDeleteClick}: CommentProps){
     function handleActiveLike(){
         const like = likes?.find(like => like.userId == '999')
         return like ? true : false
@@ -27,20 +29,20 @@ function Comment({created_at, user, text, likes, handleLike}: CommentProps){
     return(
         <S.StyledComment>
             <div className="profile">
-                <Avatar src={user.avatar}/>
+                <Avatar src={author.avatar}/>
             </div>
             <div className="content">
                 <aside>
                     <header>
                         <div className="data">
-                            <strong>{user.name}</strong>
+                            <strong>{author.name} {author.id == '999' && <span>(você)</span>}</strong>
                             <span>{created_at}</span>
                         </div>
-                        <RiDeleteBin6Line/>
+                        {author.id == '999' && <RiDeleteBin6Line onClick={onDeleteClick}/>}
                     </header>
                     <p>{text}</p>
                 </aside>
-                <S.Like $active={handleActiveLike()} onClick={handleLike}>
+                <S.Like $active={handleActiveLike()} onClick={onLikeClick}>
                     <BiLike/>
                     <strong>Aplaudir • {likes?.length || 0}</strong>
                 </S.Like>

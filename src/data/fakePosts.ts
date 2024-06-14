@@ -17,7 +17,7 @@ export type PostProps = {
 export type CommentProps = {
     id: string
     created_at: string
-    user: UserProps
+    author: UserProps
     text: string
     likes?: {
         id: string
@@ -42,7 +42,7 @@ export const FakePosts: PostProps[] = [
                 id: "111111",
                 created_at: "2024-22-02",
                 text: "test test",
-                user: {
+                author: {
                     id: "222",
                     avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     name: "Jubilei",
@@ -75,7 +75,7 @@ export const FakePosts: PostProps[] = [
                 id: "2222222",
                 created_at: "2024-22-02",
                 text: "test test",
-                user: {
+                author: {
                     id: "222",
                     avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     name: "Jubilei",
@@ -86,7 +86,7 @@ export const FakePosts: PostProps[] = [
                 id: "333333",
                 created_at: "2024-22-02",
                 text: "test test",
-                user: {
+                author: {
                     id: "333",
                     avatar: " https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     name: "Clodosvaldo",
@@ -111,7 +111,7 @@ export const FakePosts: PostProps[] = [
                 id: "111111",
                 created_at: "2024-22-02",
                 text: "test test",
-                user: {
+                author: {
                     id: "222",
                     avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     name: "Jubilei",
@@ -122,7 +122,7 @@ export const FakePosts: PostProps[] = [
                 id: "2222222",
                 created_at: "2024-22-02",
                 text: "test test",
-                user: {
+                author: {
                     id: "222",
                     avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     name: "Jubilei",
@@ -133,7 +133,7 @@ export const FakePosts: PostProps[] = [
                 id: "333333",
                 created_at: "2024-22-02",
                 text: "test test",
-                user: {
+                author: {
                     id: "333",
                     avatar: " https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     name: "Clodosvaldo",
@@ -158,7 +158,7 @@ export const FakePosts: PostProps[] = [
                 id: "111111",
                 created_at: "2024-22-02",
                 text: "test test",
-                user: {
+                author: {
                     id: "222",
                     avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     name: "Jubilei",
@@ -169,7 +169,7 @@ export const FakePosts: PostProps[] = [
                 id: "2222222",
                 created_at: "2024-22-02",
                 text: "test test",
-                user: {
+                author: {
                     id: "222",
                     avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     name: "Jubilei",
@@ -180,7 +180,7 @@ export const FakePosts: PostProps[] = [
                 id: "333333",
                 created_at: "2024-22-02",
                 text: "test test",
-                user: {
+                author: {
                     id: "333",
                     avatar: " https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     name: "Clodosvaldo",

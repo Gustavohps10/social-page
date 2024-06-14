@@ -13,9 +13,40 @@ import { Button } from "./components/Button/Button"
 
 import { FakePosts, UserProps, PostProps } from "./data/fakePosts"
 
+import { ModalStyled } from "./components/Modal/Modal.css"
+ModalStyled.setAppElement("body")
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
+type ModalProps = {
+  show: boolean,
+  commentId?: string
+}
+
 function App() {
   const [posts, setPosts] = useState<PostProps[]>(FakePosts)
   const [comment, setComment] = useState<{postId?:string, text: string}>({text: ''})
+  const [modalData, setModalData] = useState<ModalProps>({show: false});
+
+  function openModal(commentId: string) {
+    setModalData({
+      show: true,
+      commentId
+    }); 
+  }
+
+  function closeModal() {
+    setModalData({show: false});
+  }
 
   const fakeUser: UserProps = {
     id: "999",
@@ -29,7 +60,7 @@ function App() {
       if(post.id == comment.postId){
         post.comments.push({
             id: uuid(),
-            user: fakeUser,
+            author: fakeUser,
             created_at: new Date().toISOString(),
             text: comment.text
           })
@@ -43,6 +74,17 @@ function App() {
       postId: undefined
     })
     
+  }
+
+  function handleDeleteComment() {
+    const fakePosts = posts.map(post => {
+      const filteredComments = post.comments.filter(comment => comment.id != modalData.commentId)
+      post.comments = filteredComments
+      return post
+    })
+
+    setPosts(fakePosts)
+    closeModal()
   }
 
   function handleCommentLike(postId: string, commentId: string){
@@ -79,7 +121,23 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
         <Header/>
-       
+
+        <ModalStyled
+        isOpen={modalData.show}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+        >
+          <div className="delete-comment">
+            <h1>Excluir comentário</h1>
+            <p>Você tem certeza que gostaria de excluir este comentário?</p>
+            <div className="buttons">
+              <Button $variant="outline" onClick={closeModal}>Cancelar</Button>
+              <Button $variant="filled" onClick={handleDeleteComment}>Sim, Excluir</Button>
+            </div>
+          </div>
+        </ModalStyled>
+
         <Wrapper>
           <Sidebar/>
           <div>
@@ -110,9 +168,10 @@ function App() {
                       key={comment.id}
                       created_at={comment.created_at}
                       text={comment.text}
-                      user={comment.user}
+                      author={comment.author}
                       likes={comment.likes}
-                      handleLike={()=> handleCommentLike(post.id, comment.id)}
+                      onLikeClick={()=> handleCommentLike(post.id, comment.id)}
+                      onDeleteClick={()=>openModal(comment.id)}
                     />
                   )}
                 </Post>
