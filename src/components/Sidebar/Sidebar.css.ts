@@ -1,10 +1,37 @@
+import { HTMLAttributes } from "react";
 import styled from "styled-components";
 
-export const StyledSidebar = styled.aside`
-    position: relative;
+export type StyledSidebarProps = HTMLAttributes<HTMLDivElement> & {
+    $active: boolean
+}
+
+export const StyledSidebar = styled.aside<StyledSidebarProps>`
+    position: sticky;
+    top: 1rem;
     background-color: var(--gray-800);
     border-radius: 8px;
     overflow: hidden;
+    transition: all .4s ease;
+
+    .close-icon {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        width: 1.25rem;
+        height: 1.25rem;
+        padding: .5rem;
+        cursor: pointer;
+        border-radius: ${({theme}) => theme.border.radius};
+        transition: all .2s ease;
+        user-select: none;
+        box-sizing: content-box;
+        display: none;
+
+        &:hover{
+            background-color: rgba(0 0 0 / 0.23);
+        }
+        
+    }
 
     .cover {
         height: 4.5rem;
@@ -48,5 +75,21 @@ export const StyledSidebar = styled.aside`
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    @media(max-width: 768px) {
+        position: fixed;
+        height: 100vh;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        border-radius: 0;
+        width: 15rem;
+        box-shadow: 2px 2px 5px -2px #000;
+        transform: ${({$active}) => $active ? 'translate(0)' :  'translate(-100%)' };
+
+        .close-icon {
+            display: block;
+        }
     }
 `

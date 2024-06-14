@@ -1,11 +1,13 @@
+import * as S from "./Sidebar.css"
 import { Avatar } from "../Avatar/Avatar"
 import { Button } from "../Button/Button"
-import { StyledSidebar } from "./Sidebar.css"
-import { RiEditLine } from "react-icons/ri"
+import { RiEditLine, RiCloseLargeFill } from "react-icons/ri"
 
-function Sidebar() {
+
+function Sidebar({onCloseClick,...props}:S.StyledSidebarProps & {onCloseClick: ()=> void }) {
     return(
-        <StyledSidebar>
+        <S.StyledSidebar {...props}>
+            <RiCloseLargeFill className="close-icon" onClick={onCloseClick}/>
             <img className="cover" src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="User Cover" />
             
             <div className="profile">
@@ -20,7 +22,7 @@ function Sidebar() {
                     Editar seu perfil
                 </Button>
             </footer>
-        </StyledSidebar>
+        </S.StyledSidebar>
     )
 }
 

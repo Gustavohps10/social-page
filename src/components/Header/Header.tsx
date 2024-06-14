@@ -1,12 +1,20 @@
 import { StyledHeader } from "./Header.css";
 
 import igniteLogo from "../../assets/ignite-logo.svg"
+import { RiMenu2Fill } from "react-icons/ri";
 
-function Header() {
+type HeaderProps = {
+    onMenuClick: ()=>void
+}
+
+function Header({onMenuClick}: HeaderProps) {
     return(
         <StyledHeader>
-            <img className="logo" src={igniteLogo} alt="Ignite Logo" />
-            Social Feed
+            <RiMenu2Fill className="menu-icon" onClick={onMenuClick}/>
+            <div>
+                <img className="logo" src={igniteLogo} alt="Ignite Logo" />
+                <span>Social Feed</span>
+            </div>
         </StyledHeader>
     )
 }

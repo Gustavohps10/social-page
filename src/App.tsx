@@ -28,6 +28,7 @@ function App() {
   const [posts, setPosts] = useState<PostProps[]>(FakePosts)
   const [comment, setComment] = useState<{postId?:string, text: string}>({text: ''})
   const [modalData, setModalData] = useState<ModalProps>({show: false});
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
 
   function openModal(commentId: string) {
     setModalData({
@@ -139,7 +140,7 @@ function App() {
           transition={Bounce}
           >
         </ToastContainer>
-        <Header/>
+        <Header onMenuClick={()=>setSidebarIsOpen(true)}/>
         <ModalStyled
         isOpen={modalData.show}
         onRequestClose={closeModal}
@@ -156,7 +157,7 @@ function App() {
         </ModalStyled>
 
         <Wrapper>
-          <Sidebar/>
+          <Sidebar $active={sidebarIsOpen} onCloseClick={()=>setSidebarIsOpen(false)}/>
           <div>
             {
               posts.map(post => 

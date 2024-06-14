@@ -9,4 +9,8 @@ export const StyledWrapper = styled.div`
     grid-template-columns: 256px 1fr;
     gap: 2rem;
     align-items: start;
+
+    @media(max-width: 768px) {
+        display: block;
+    }
 `
