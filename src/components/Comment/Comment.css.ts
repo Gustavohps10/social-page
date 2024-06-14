@@ -53,22 +53,31 @@ export const StyledComment = styled.div`
                 color: ${({theme}) => theme.color.gray_300};
             }
         }
+    }
+`
 
-        .like {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: ${({theme}) => theme.color.gray_400};
-            cursor: pointer;
+type LikeProps = {
+    $active: boolean
+}
 
-            svg {
-                width: 1.25rem;
-                height: 1.25rem;
-            }
+export const Like = styled.div<LikeProps>`
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: ${({theme, $active}) => $active ? theme.color.green_500 : theme.color.gray_400};
+    cursor: pointer;
 
-            &:hover {
-                filter: brightness(85%);
-            }
-        }
+    strong {
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+    }
+
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    &:hover {
+        filter: brightness(85%);
     }
 `

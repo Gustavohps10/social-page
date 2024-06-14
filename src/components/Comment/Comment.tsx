@@ -19,7 +19,11 @@ type CommentProps = {
 }
 
 function Comment({created_at, user, text, likes, handleLike}: CommentProps){
-    console.log(likes?.length)
+    function handleActiveLike(){
+        const like = likes?.find(like => like.userId == '999')
+        return like ? true : false
+    }
+    
     return(
         <S.StyledComment>
             <div className="profile">
@@ -36,10 +40,10 @@ function Comment({created_at, user, text, likes, handleLike}: CommentProps){
                     </header>
                     <p>{text}</p>
                 </aside>
-                <div className="like" onClick={handleLike}>
+                <S.Like $active={handleActiveLike()} onClick={handleLike}>
                     <BiLike/>
                     <strong>Aplaudir • {likes?.length || 0}</strong>
-                </div>
+                </S.Like>
             </div>
         </S.StyledComment>
     )

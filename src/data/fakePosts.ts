@@ -51,7 +51,23 @@ export const FakePosts: PostProps[] = [
                 likes: [
                     {
                         id: '1111',
-                        userId: '999'
+                        userId: '1111'
+                    },
+                    {
+                        id: '2222',
+                        userId: '2222'
+                    }
+                    ,{
+                        id: '333',
+                        userId: '3333'
+                    }
+                    ,{
+                        id: '444',
+                        userId: '444'
+                    }
+                    ,{
+                        id: '5555',
+                        userId: '555'
                     }
                 ]
             },

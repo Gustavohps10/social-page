@@ -9,10 +9,9 @@ import { Sidebar } from "./components/Sidebar/Sidebar"
 import { Wrapper } from "./components/Wrapper/Wrapper"
 import { Post } from "./components/Post/Post"
 import { Comment } from "./components/Comment/Comment"
-
-import { FakePosts, UserProps, PostProps } from "./data/fakePosts"
 import { Button } from "./components/Button/Button"
 
+import { FakePosts, UserProps, PostProps } from "./data/fakePosts"
 
 function App() {
   const [posts, setPosts] = useState<PostProps[]>(FakePosts)
@@ -55,12 +54,21 @@ function App() {
     const fakePosts = posts.map(post => {
       if(post.id == postId){
         const commentIndex = post.comments.findIndex(comment => comment.id == commentId)
+        const findedLikeByUserId = post.comments[commentIndex].likes?.find(like => like.userId == fakeUser.id)
+        
+        if(findedLikeByUserId){
+          const filteredLikes = post.comments[commentIndex].likes?.filter(like => like.userId != fakeUser.id)
+          console.log(post.comments[commentIndex].likes);
+          
+          post.comments[commentIndex].likes = filteredLikes
+          return post
+        }
         
         if(!post.comments[commentIndex].likes){
           post.comments[commentIndex].likes = [like]
-        }else{
-          post.comments[commentIndex].likes?.push(like)
+          return post
         }
+        post.comments[commentIndex].likes?.push(like)
       }
       return post
     })
