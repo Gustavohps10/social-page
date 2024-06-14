@@ -13,19 +13,11 @@ import { Button } from "./components/Button/Button"
 
 import { FakePosts, UserProps, PostProps } from "./data/fakePosts"
 
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { ModalStyled } from "./components/Modal/Modal.css"
 ModalStyled.setAppElement("body")
-
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
 
 type ModalProps = {
   show: boolean,
@@ -85,6 +77,19 @@ function App() {
 
     setPosts(fakePosts)
     closeModal()
+    //Feedback excluido com sucesso!
+    toast.success('Feedback excluído com sucesso!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      
+      transition: Bounce,
+    });
   }
 
   function handleCommentLike(postId: string, commentId: string){
@@ -120,12 +125,24 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+          >
+        </ToastContainer>
         <Header/>
-
         <ModalStyled
         isOpen={modalData.show}
         onRequestClose={closeModal}
-        style={customStyles}
         contentLabel="Example Modal"
         >
           <div className="delete-comment">

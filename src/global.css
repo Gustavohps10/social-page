@@ -8,6 +8,9 @@
     --gray-800: #202024;
     --gray-900: #121214;
     --green-500: #00875f;
+
+    --toastify-color-dark: #202024;
+    --toastify-color-success: #00b37e;
 }
 
 * {
