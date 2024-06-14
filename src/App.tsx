@@ -18,14 +18,14 @@ function App() {
   const [posts, setPosts] = useState<PostProps[]>(FakePosts)
   const [comment, setComment] = useState<{postId?:string, text: string}>({text: ''})
 
-  function handleSendComment() {
-    const fakeUser: UserProps = {
-      id: "999999",
-      name: "Your name",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      occupation: "Support"
-    }
+  const fakeUser: UserProps = {
+    id: "999",
+    name: "Your name",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    occupation: "Support"
+  }
 
+  function handleSendComment() {
     const fakePosts = posts.map(post => {
       if(post.id == comment.postId){
         post.comments.push({
@@ -43,8 +43,29 @@ function App() {
       text: '',
       postId: undefined
     })
-    console.log(posts);
     
+  }
+
+  function handleCommentLike(postId: string, commentId: string){
+    const like = {
+      id: uuid(),
+      userId: fakeUser.id
+    }
+    
+    const fakePosts = posts.map(post => {
+      if(post.id == postId){
+        const commentIndex = post.comments.findIndex(comment => comment.id == commentId)
+        
+        if(!post.comments[commentIndex].likes){
+          post.comments[commentIndex].likes = [like]
+        }else{
+          post.comments[commentIndex].likes?.push(like)
+        }
+      }
+      return post
+    })
+
+    setPosts(fakePosts)
   }
 
   return (
@@ -82,6 +103,8 @@ function App() {
                       created_at={comment.created_at}
                       text={comment.text}
                       user={comment.user}
+                      likes={comment.likes}
+                      handleLike={()=> handleCommentLike(post.id, comment.id)}
                     />
                   )}
                 </Post>

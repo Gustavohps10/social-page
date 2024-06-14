@@ -8,6 +8,7 @@ export const theme = {
         gray_700: "#29292e",
         gray_800: "#202024",
         gray_900: "#121214",
+        green_300: "#00b37e",
         green_500: "#00875f",
     },
     border: {

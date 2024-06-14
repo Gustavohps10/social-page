@@ -19,6 +19,10 @@ export type CommentProps = {
     created_at: string
     user: UserProps
     text: string
+    likes?: {
+        id: string
+        userId: string       
+    }[]
 }
 
 export const FakePosts: PostProps[] = [
@@ -43,7 +47,13 @@ export const FakePosts: PostProps[] = [
                     avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     name: "Jubilei",
                     occupation: "Scrum Master"
-                }
+                },
+                likes: [
+                    {
+                        id: '1111',
+                        userId: '999'
+                    }
+                ]
             },
             {
                 id: "2222222",

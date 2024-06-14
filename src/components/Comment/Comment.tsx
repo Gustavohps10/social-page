@@ -11,9 +11,15 @@ type CommentProps = {
         occupation: string
     },
     text: string
+    likes?: {
+        id: string
+        userId: string       
+    }[]
+    handleLike: () => void
 }
 
-function Comment({created_at, user, text}: CommentProps){
+function Comment({created_at, user, text, likes, handleLike}: CommentProps){
+    console.log(likes?.length)
     return(
         <S.StyledComment>
             <div className="profile">
@@ -30,9 +36,9 @@ function Comment({created_at, user, text}: CommentProps){
                     </header>
                     <p>{text}</p>
                 </aside>
-                <div className="like">
+                <div className="like" onClick={handleLike}>
                     <BiLike/>
-                    <strong>Aplaudir • 33</strong>
+                    <strong>Aplaudir • {likes?.length || 0}</strong>
                 </div>
             </div>
         </S.StyledComment>
