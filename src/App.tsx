@@ -26,7 +26,7 @@ type ModalProps = {
 
 function App() {
   const [posts, setPosts] = useState<PostProps[]>(FakePosts)
-  const [comment, setComment] = useState<{postId?:string, text: string}>({text: ''})
+  const [newComment, setNewComment] = useState<{postId?:string, text: string}>({text: ''})
   const [modalData, setModalData] = useState<ModalProps>({show: false});
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
 
@@ -50,19 +50,19 @@ function App() {
 
   function handleSendComment() {
     const fakePosts = posts.map(post => {
-      if(post.id == comment.postId){
+      if(post.id == newComment.postId){
         post.comments.push({
             id: uuid(),
             author: fakeUser,
             created_at: new Date().toISOString(),
-            text: comment.text
+            text: newComment.text
           })
       }
       return post
     })    
     
     setPosts(fakePosts)
-    setComment({
+    setNewComment({
       text: '',
       postId: undefined
     })
@@ -171,11 +171,11 @@ function App() {
                   <div className="feedback">
                     <h1>Deixe seu feedback</h1>
                     <textarea
-                      onChange={(e)=>setComment({postId: post.id, text: e.target.value})} 
-                      value={comment.text}
+                      onChange={(e)=>setNewComment({postId: post.id, text: e.target.value})} 
+                      value={newComment.postId == post.id ? newComment.text : ''}
                       placeholder="Escreva um comentário"
                     ></textarea>
-                    {comment.text && comment.postId == post.id &&
+                    {newComment.text && newComment.postId == post.id &&
                       <Button 
                         onClick={handleSendComment}
                         $variant="filled">Publicar</Button>
