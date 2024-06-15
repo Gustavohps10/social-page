@@ -27,14 +27,27 @@ export type CommentProps = {
 
 export const FakePosts: PostProps[] = [
     {
+        id: "1000",
+        created_at: "2024-11-11",
+        tags: ["dev", "html", "css"], 
+        text: "Lorem ipsum",
+        user: {
+            id: "111",
+            avatar: "https://images.unsplash.com/photo-1526835746352-0b9da4054862?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            name: "Karol",
+            occupation: "Developer"
+        },
+        comments: []
+    },
+    {
         id: "1",
         created_at: "2024-11-11",
         tags: ["dev", "html", "css"], 
         text: "Lorem ipsum",
         user: {
             id: "111",
-            avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            name: "Diego",
+            avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            name: "Amanda",
             occupation: "Developer"
         },
         comments: [
@@ -45,7 +58,7 @@ export const FakePosts: PostProps[] = [
                 author: {
                     id: "222",
                     avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    name: "Jubilei",
+                    name: "William",
                     occupation: "Scrum Master"
                 },
                 likes: [
@@ -78,7 +91,7 @@ export const FakePosts: PostProps[] = [
                 author: {
                     id: "222",
                     avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    name: "Jubilei",
+                    name: "William",
                     occupation: "Scrum Master"
                 }
             },
@@ -88,8 +101,8 @@ export const FakePosts: PostProps[] = [
                 text: "test test",
                 author: {
                     id: "333",
-                    avatar: " https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    name: "Clodosvaldo",
+                    avatar: "https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    name: "Juan",
                     occupation: "DBA"
                 }
             }
@@ -102,8 +115,8 @@ export const FakePosts: PostProps[] = [
         text: "Lorem ipsum",
         user: {
             id: "111",
-            avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            name: "Diego",
+            avatar: "https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            name: "Juan",
             occupation: "Developer"
         },
         comments: [
@@ -114,77 +127,8 @@ export const FakePosts: PostProps[] = [
                 author: {
                     id: "222",
                     avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    name: "Jubilei",
+                    name: "William",
                     occupation: "Scrum Master"
-                }
-            },
-            {
-                id: "2222222",
-                created_at: "2024-22-02",
-                text: "test test",
-                author: {
-                    id: "222",
-                    avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    name: "Jubilei",
-                    occupation: "Scrum Master"
-                }
-            },
-            {
-                id: "333333",
-                created_at: "2024-22-02",
-                text: "test test",
-                author: {
-                    id: "333",
-                    avatar: " https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    name: "Clodosvaldo",
-                    occupation: "DBA"
-                }
-            }
-        ]
-    },
-    {
-        id: "3",
-        created_at: "2024-11-11",
-        tags: ["dev", "html", "css"], 
-        text: "Lorem ipsum",
-        user: {
-            id: "111",
-            avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            name: "Diego",
-            occupation: "Developer"
-        },
-        comments: [
-            {
-                id: "111111",
-                created_at: "2024-22-02",
-                text: "test test",
-                author: {
-                    id: "222",
-                    avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    name: "Jubilei",
-                    occupation: "Scrum Master"
-                }
-            },
-            {
-                id: "2222222",
-                created_at: "2024-22-02",
-                text: "test test",
-                author: {
-                    id: "222",
-                    avatar: "https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    name: "Jubilei",
-                    occupation: "Scrum Master"
-                }
-            },
-            {
-                id: "333333",
-                created_at: "2024-22-02",
-                text: "test test",
-                author: {
-                    id: "333",
-                    avatar: " https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                    name: "Clodosvaldo",
-                    occupation: "DBA"
                 }
             }
         ]
