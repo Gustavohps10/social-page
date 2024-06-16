@@ -35,6 +35,7 @@ yarn dev
 <p>
 <img src="https://img.shields.io/static/v1?label=&message=Node.js&colorA=2a2a2a&colorB=1a1a1e&logo=node.js&style=flat-square">
 <img src="https://img.shields.io/static/v1?label=&message=TypeScript&colorA=2a2a2a&colorB=1a1a1e&logo=typescript&style=flat-square">
+<img src="https://img.shields.io/static/v1?label=&message=Yarn&colorA=2a2a2a&colorB=1a1a1e&logo=yarn&style=flat-square">
 <img src="https://img.shields.io/static/v1?label=&message=React&colorA=2a2a2a&colorB=1a1a1e&logo=react&style=flat-square">
 <img src="https://img.shields.io/static/v1?label=&message=Styled Components&colorA=2a2a2a&colorB=1a1a1e&logo=styled-components&style=flat-square">
 </p>
