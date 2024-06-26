@@ -16,6 +16,9 @@ import { FakePosts, UserProps, PostProps } from "./data/fakePosts"
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale/pt-BR'
+
 import { ModalStyled } from "./components/Modal/Modal.css"
 ModalStyled.setAppElement("body")
 
@@ -163,7 +166,10 @@ function App() {
               posts.map(post => 
                 <Post 
                   key={post.id}
-                  created_at={post.created_at}
+                  created_at={formatDistanceToNow(post.created_at, {
+                    addSuffix: true,
+                    locale: ptBR,
+                  })}
                   tags={post.tags}
                   text={post.text}
                   user={post.user}
@@ -184,7 +190,10 @@ function App() {
                   {post.comments.map(comment => 
                     <Comment
                       key={comment.id}
-                      created_at={comment.created_at}
+                      created_at={formatDistanceToNow(comment.created_at, {
+                        addSuffix: true,
+                        locale: ptBR,
+                      })}
                       text={comment.text}
                       author={comment.author}
                       likes={comment.likes}

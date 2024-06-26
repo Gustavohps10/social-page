@@ -28,7 +28,7 @@ export type CommentProps = {
 export const FakePosts: PostProps[] = [
     {
         id: "1000",
-        created_at: "2024-11-11",
+        created_at: "2024-05-11",
         tags: ["dev", "html", "css"], 
         text: "Lorem ipsum",
         user: {
@@ -41,7 +41,7 @@ export const FakePosts: PostProps[] = [
     },
     {
         id: "1",
-        created_at: "2024-11-11",
+        created_at: "2024-05-11",
         tags: ["dev", "html", "css"], 
         text: "Lorem ipsum",
         user: {
@@ -53,7 +53,7 @@ export const FakePosts: PostProps[] = [
         comments: [
             {
                 id: "111111",
-                created_at: "2024-22-02",
+                created_at: "2024-06-02",
                 text: "test test",
                 author: {
                     id: "222",
@@ -86,7 +86,7 @@ export const FakePosts: PostProps[] = [
             },
             {
                 id: "2222222",
-                created_at: "2024-22-02",
+                created_at: "2024-06-12",
                 text: "test test",
                 author: {
                     id: "222",
@@ -97,7 +97,7 @@ export const FakePosts: PostProps[] = [
             },
             {
                 id: "333333",
-                created_at: "2024-22-02",
+                created_at: "2024-06-12",
                 text: "test test",
                 author: {
                     id: "333",
@@ -110,7 +110,7 @@ export const FakePosts: PostProps[] = [
     },
     {
         id: "2",
-        created_at: "2024-11-11",
+        created_at: "2024-05-11",
         tags: ["dev", "html", "css"], 
         text: "Lorem ipsum",
         user: {
@@ -122,7 +122,7 @@ export const FakePosts: PostProps[] = [
         comments: [
             {
                 id: "111111",
-                created_at: "2024-22-02",
+                created_at: "2024-06-12",
                 text: "test test",
                 author: {
                     id: "222",
